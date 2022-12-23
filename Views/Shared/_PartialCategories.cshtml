@@ -1,0 +1,10 @@
+﻿@*@model IEnumerable<Category>
+
+<p class="lead">Kategoriler</p>
+<div class="list-group">
+    <a href="#" class="list-group-item"><span class="glypicon glypicon-arrow-right"></span>Tümü</a>
+    @foreach (var category in Model)
+    {
+        <a href="#" title="@category.Description" class="list-group-item"><span class="glypicon glypicon-arrow-right"></span>@category.Name</a>
+    }
+</div>*@

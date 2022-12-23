@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MvcProjeWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MvcProjeWeb.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Hakkında">Hakkıında</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="iletisim">İletişim</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @if (User.IsInRole("admin"))
+                            {
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" asp-action="Index" asp-asp-controller="Admin" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                        Admin
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a asp-action="Index" asp-controller="User" class="dropdown-item">Kullanıcılar</a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Index" asp-controller="Category" class="dropdown-item">Kategoriler</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @*   <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                        </li>*@
+                            }
+
+                            <li class="dropdown ms-auto">
+                                <a class="btn btn-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown" asp-area="" asp-controller="Account" asp-action="Profile">
+                                    <i class="fa-solid fa-user me-2"></i>
+                                    @User.FindFirst("Username").Value
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-area="#">Profile Git</a></li>
+                                    <li><a class="dropdown-item" asp-area="#" asp-controller="Account" asp-action="Profile">Profili Düzenle</a></li>
+                                    <li><a class="dropdown-item" asp-area="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Logout"> <i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login"> <i class="fa-solid fa-right-to-bracket me-2"></i>Giriş Yap</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register"> <i class="fa-solid fa-user me-2"></i>Üye Ol</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">  
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <!-- Footer -->
+    <hr />
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="footer__instagram">
+                <div class="footer__instagram__avatar">
+                    <div class="footer__instagram__avatar--pic">
+                        <img src="img/footer/instagram-avatar.jpg" alt="">
+                    </div>
+                    <div class="footer__instagram__avatar--text">
+                        <h5>Yemek Tarif Sitesi</h5>
+                        <span>23,7k follower</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
+                        <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-1.jpg"></div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
+                        <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-2.jpg"></div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
+                        <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-3.jpg"></div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
+                        <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-4.jpg"></div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
+                        <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-5.jpg"></div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
+                        <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-6.jpg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__text">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            ut<br /> labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus
+                            commodo viverra<br /> maecenas accumsan lacus vel facilisis.
+                        </p>
+                        <div class="footer__social">
+                            <a href="https://twitter.com/Ebubekir_mert29"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/ebubekir_mert/"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 text-center">
+                            <p>
+                                Tüm hakları saklıdır &copy;<br />
+                                Proje @DateTime.Now.Year
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

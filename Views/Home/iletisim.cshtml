@@ -1,0 +1,42 @@
+﻿@model iletisimViewModel
+
+<section class="contact-head">
+
+    <div class="container text-center">
+
+        <h1 class="title">Bizimle İletişime Geçin</h1>
+
+        <p class="warning-text"> <i> Görüşleriniz bizim için çok değerli!</i></p>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="form-label">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Name" />
+                <span asp-validation-for="Name" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Surname" class="form-label">Surname</label>
+                <input asp-for="Surname" class="form-control" placeholder="Surname" />
+                <span asp-validation-for="Surname" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" type="email" placeholder="Email"/>
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Description" />
+                <span asp-validation-for="Description" class="text-danger small"></span>
+            </div>
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-primary d-block"> <i class="fa-solid fa-paper-plane me-2"></i> Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
