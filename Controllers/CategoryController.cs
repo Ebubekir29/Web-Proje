@@ -50,5 +50,17 @@ namespace MvcWebProje.Controllers
             }
             return View(model);
         }
+        public IActionResult DeleteCategory(int id)
+        {
+            Category category = _databaseContext.Categories.Find(id);
+
+            if (category != null)
+            {
+                _databaseContext.Categories.Remove(category);
+                _databaseContext.SaveChanges();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
