@@ -1,4 +1,10 @@
-﻿    @model IEnumerable<UserModel>
+﻿@model IEnumerable<UserModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
 @{
     ViewData["Title"] = "Kullanıcılar";
 }
@@ -38,8 +44,8 @@
                         <td>@user.CreatedAt</td>
                         <td>@user.Role</td>
                         <td>
-                            <a asp-controller="Category" asp-action="EditUser" class="btn btn-info btn-sm"><i class="fa fa-edit me-2"></i>Edit</a>
-                            <a asp-controller="Category" asp-action="DeleteUser" asp-route-id="@user.Id" onclick="return confirm('Kullanıcıyı silmek istediğinden emin misin : @user.Username ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Remove</a>
+                            <a asp-controller="User" asp-action="EditUser" class="btn btn-info btn-sm"><i class="fa fa-edit me-2"></i>Düzenle</a>
+                            <a asp-controller="User" asp-action="DeleteUser" asp-route-id="@user.Id" onclick="return confirm('Kullanıcıyı silmek istediğinden emin misin : @user.Username ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Sil</a>
 
                         </td>
                     </tr>
@@ -48,3 +54,4 @@
         </table>
     </div>
 </div>
+
