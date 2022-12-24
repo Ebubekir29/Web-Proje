@@ -6,7 +6,6 @@ namespace MvcWebProje.Models
     [Table("iletisim")]
     public class iletisim
     {
-        [Key]
         public int id { get; set; }
         [Required]
         [StringLength(30)]
