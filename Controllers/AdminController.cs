@@ -10,5 +10,10 @@ namespace MvcWebProje.Controllers
         {
             return View();
         }
+        public IActionResult YemekTarifiEkle()
+        {
+
+            return View();
+        }
     }
 }
