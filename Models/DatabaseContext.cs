@@ -11,5 +11,8 @@ namespace MvcWebProje.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<iletisim> iletisims { get; set; }
+        public DbSet<Yemekler> yemeklers { get; set; }
+        public DbSet<yemek> meals { get; set; }
+
     }
 }

@@ -17,13 +17,6 @@ namespace MvcWebProje.Controllers
             categories = _databaseContext.Categories.Select(x => new Category { Id = x.Id, Name = x.Name, Description = x.Description }).ToList();
             return View(categories);
         }
-        public IActionResult Index1()
-        {
-            List<Category> categories = new List<Category>();
-
-            categories = _databaseContext.Categories.Select(x => new Category { Id = x.Id, Name = x.Name, Description = x.Description }).ToList();
-            return View(categories);
-        }
         public IActionResult CreateCategory()
         {
             return View();
