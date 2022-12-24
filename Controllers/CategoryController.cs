@@ -50,6 +50,40 @@ namespace MvcWebProje.Controllers
             }
             return View(model);
         }
+        //public IActionResult EditCategory(int id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var user = _databaseContext.Categories.Find(id);
+
+        //    return View(user);
+        //}
+        //[HttpPost]
+        //public IActionResult EditUser(int id, Category model)
+        //{
+        //    if (id != model.Id)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        var use = _databaseContext.Categories.Find(id);
+        //        if (ModelState.IsValid)
+        //        {
+        //            use.Name = model.Name;
+        //            use.Description = model.Description;
+        //            _databaseContext.Users.Update(use);
+        //            _databaseContext.SaveChanges();
+        //        }
+        //        return RedirectToAction("Index", "User");
+        //    }
+
+        //    return View(model);
+        //}
         public IActionResult DeleteCategory(int id)
         {
             Category category = _databaseContext.Categories.Find(id);

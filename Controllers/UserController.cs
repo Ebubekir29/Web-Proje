@@ -39,8 +39,6 @@ namespace MvcWebProje.Controllers
                     ModelState.AddModelError(nameof(model.Email), "Email is already exists");
                     return View(model);
                 }
-
-
                 var userdata = new User()
                 {
                     Username = model.UserName,
