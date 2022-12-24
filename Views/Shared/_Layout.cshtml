@@ -24,13 +24,29 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Hakkında">Hakkıında</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="tarif" aria-expanded="false">Kategoriler</a>
+                            <div class="dropdown-menu" aria-labelledby="tarif">
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Index">Tümü</a>
+                                <div class="dropdown-divider"> </div>
+                                
+                                <a class="dropdown-item" href="../cerulean/">Sulu Yemekler</a>
+                                <a class="dropdown-item" href="../cosmo/">Etli Yemekler</a>
+                                <a class="dropdown-item" href="../cyborg/">Sebze Yemekleri</a>
+                                <a class="dropdown-item" href="../darkly/">Çorba Çeşitleri</a>
+                                <a class="dropdown-item" href="../flatly/">Pilav Çeşitleri</a>
+                                <a class="dropdown-item" href="../journal/">Salata Çeşitleri</a>
+                                <a class="dropdown-item" href="../litera/">Soğuk/Sicak Mezeler</a>
+                                <a class="dropdown-item" href="../lumen/">Tatli Çeşitleri</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="iletisim">İletişim</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Hakkında">Hakkıında</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="iletisim">İletişim</a>
                         </li>
 
                         @if (User.Identity.IsAuthenticated)
@@ -69,7 +85,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Logout"> <i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a>
+                                <a class="nav-link " asp-area="" asp-controller="Account" asp-action="Logout"> <i class="fa-solid fa-right-from-bracket me-2"></i> Logout</a>
                             </li>
                         }
                         else
@@ -93,7 +109,7 @@
     </div>
 
 
-    <!-- Footer -->
+   @* <!-- Footer -->
     <hr />
     <footer class="footer">
         <div class="container-fluid">
@@ -158,8 +174,17 @@
             </div>
         </div>
         </div>
-    </footer>
+    </footer>*@
+    <footer>
+        <div class="bg-dark text-light text-center">
 
+            <p class="align-middle p-2 mb-0">
+                <span> Tüm haklari saklidir © | 2022 </span><br>
+                <span> Yemek Tarfilerim </span>
+
+            </p>
+        </div>
+    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -65,18 +65,22 @@ namespace MvcWebProje.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-        //public IActionResult EditUser(Guid id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
 
-        //    var user = _databaseContext.Users.Find(id);
+        public IActionResult EditUser(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    var viewModel = _databaseContext.Users.Select(x => new EditViewModel { UserName = x.Username, Email = x.Email, Role = x.Role, Locked = x.Locked });
-        //    return View(viewModel);
-        //}
+            var user = _databaseContext.Users.Find(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public IActionResult EditUser(Guid id, EditUserModel edit)

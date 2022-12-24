@@ -1,17 +1,9 @@
-﻿@*@model IEnumerable<Category>
-
-<p class="lead">Kategoriler</p>
-<div class="list-group">
-    <a href="#" class="list-group-item"><span class="glypicon glypicon-arrow-right"></span>Tümü</a>
-    @foreach (var category in Model)
-    {
-        <a href="#" title="@category.Description" class="list-group-item"><span class="glypicon glypicon-arrow-right"></span>@category.Name</a>
-    }
-</div>*@
-@model IEnumerable<Category>
+﻿@model IEnumerable<Category>
 @{
-    ViewData["Title"] = "Kategoriler";
+    ViewData["Title"] = "Kullanıcılar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="row text-center">
     <div class="col">
         <h1 class="display-4">
@@ -32,19 +24,21 @@
         <table class="table table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var category in Model)
+                @foreach (var user in Model)
                 {
                     <tr>
-                        <td>@category.Name</td>
-                        <td>@category.Description</td>
-                        <td class="text-end">
-                            <a asp-action="EditCategory" asp-route-id="@category.Id" class="btn btn-info btn-sm"><i class="fa fa-edit me-2"></i>Düzenle</a>
-                            <a asp-action="DeleteCategory" asp-route-id="@category.Id" onclick="return confirm('Kategoriyi silmek istediğinden emin misin : @category.Name ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Sil</a>
+                        <td>@user.Name</td>
+                        <td>@user.Description</td>
+                        <td>
+                            <a asp-action="EditCategory" asp-route-id="@user.Id" class="btn btn-info btn-sm"><i class="fa fa-edit me-2"></i>Edit</a>
+                            <a asp-action="DeleteCategory" asp-route-id="@user.Id" onclick="return confirm('Kullanıcıyı silmek istediğinden emin misin : @user.Name ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Remove</a>
+
                         </td>
                     </tr>
                 }
@@ -52,3 +46,4 @@
         </table>
     </div>
 </div>
+
