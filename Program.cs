@@ -39,6 +39,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "DefaultApi",
+    pattern: "{api:Exists}/{controller}/{id}",
+    defaults: new { }
+);
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
