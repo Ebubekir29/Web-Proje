@@ -39,6 +39,7 @@ namespace MvcWebProje.Controllers
                     ModelState.AddModelError(nameof(model.Email), "Email is already exists");
                     return View(model);
                 }
+
                 var userdata = new User()
                 {
                     Username = model.UserName,
@@ -65,7 +66,7 @@ namespace MvcWebProje.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
+        [HttpGet]
         public IActionResult EditUser(Guid? id)
         {
             if (id == null)
@@ -81,32 +82,31 @@ namespace MvcWebProje.Controllers
             }
             return View(user);
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult EditUser(Guid id, EditUserModel edit)
-        //{
-        //    if (id != edit.Id)
-        //    {
-        //        return NotFound();
-        //    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditUser(Guid id, EditUserModel edit)
+        {
+            if (id != edit.Id)
+            {
+                return NotFound();
+            }
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        var use = _databaseContext.Users.Find(id);
-        //        if (ModelState.IsValid)
-        //        {
-        //            use.Username = edit.Username;
-        //            use.Email = edit.Email;
-        //            use.Role = edit.Role;
-        //            use.Locked = edit.Locked;
-        //            _databaseContext.Users.Update(use);
-        //            _databaseContext.SaveChanges();
-        //        }
-        //        return RedirectToAction("Index", "User");
-        //    }
+            if (ModelState.IsValid)
+            {
+                var use = _databaseContext.Users.Find(id);
+                if (ModelState.IsValid)
+                {
+                    use.Username = edit.Username;
+                    use.Email = edit.Email;
+                    use.Role = edit.Role;
+                    _databaseContext.Users.Update(use);
+                    _databaseContext.SaveChanges();
+                }
+                return RedirectToAction("Index", "User");
+            }
 
-        //    return View(edit);
-        //}
+            return View(edit);
+        }
 
     }
 }

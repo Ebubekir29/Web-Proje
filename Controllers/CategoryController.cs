@@ -14,6 +14,7 @@ namespace MvcWebProje.Controllers
         {
             List<Category> categories = new List<Category>();
 
+
             categories = _databaseContext.Categories.Select(x => new Category { Id = x.Id, Name = x.Name, Description = x.Description }).ToList();
             return View(categories);
         }
@@ -43,40 +44,40 @@ namespace MvcWebProje.Controllers
             }
             return View(model);
         }
-        //public IActionResult EditCategory(int id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public IActionResult EditCategory(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    var user = _databaseContext.Categories.Find(id);
+            var user = _databaseContext.Categories.Find(id);
 
-        //    return View(user);
-        //}
-        //[HttpPost]
-        //public IActionResult EditUser(int id, Category model)
-        //{
-        //    if (id != model.Id)
-        //    {
-        //        return NotFound();
-        //    }
+            return View(user);
+        }
+        [HttpPost]
+        public IActionResult EditUser(int id, Category model)
+        {
+            if (id != model.Id)
+            {
+                return NotFound();
+            }
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        var use = _databaseContext.Categories.Find(id);
-        //        if (ModelState.IsValid)
-        //        {
-        //            use.Name = model.Name;
-        //            use.Description = model.Description;
-        //            _databaseContext.Users.Update(use);
-        //            _databaseContext.SaveChanges();
-        //        }
-        //        return RedirectToAction("Index", "User");
-        //    }
+            if (ModelState.IsValid)
+            {
+                var use = _databaseContext.Categories.Find(id);
+                if (ModelState.IsValid)
+                {
+                    use.Name = model.Name;
+                    use.Description = model.Description;
+                    _databaseContext.Categories.Update(use);
+                    _databaseContext.SaveChanges();
+                }
+                return RedirectToAction("Index", "Category");
+            }
 
-        //    return View(model);
-        //}
+            return View(model);
+        }
         public IActionResult DeleteCategory(int id)
         {
             Category category = _databaseContext.Categories.Find(id);
