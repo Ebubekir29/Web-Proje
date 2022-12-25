@@ -156,5 +156,25 @@ namespace MvcWebProje.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        public IActionResult iletisimGoruntule()
+        {
+            List<iletisim> iletisim = new List<iletisim>();
+
+            // yemek = _databaseContext.yemeklers.Select(x => new Yemekler { id = x.id, yemekIsmi = x.yemekIsmi, yemeginKategorisi = x.yemeginKategorisi, YemekTarifi = x.YemekTarifi, CreatedAt = x.CreatedAt }).ToList();
+            iletisim = _databaseContext.iletisims.ToList();
+            return View(iletisim);
+        }
+        public IActionResult DeleteIletisim(int id)
+        {
+            iletisim iletisim = _databaseContext.iletisims.Find(id);
+
+            if (iletisim != null)
+            {
+                _databaseContext.iletisims.Remove(iletisim);
+                _databaseContext.SaveChanges();
+            }
+
+            return RedirectToAction("iletisimGoruntule", "Admin");
+        }
     }
 }

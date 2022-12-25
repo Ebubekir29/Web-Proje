@@ -1,0 +1,48 @@
+﻿@model IEnumerable<iletisim>
+@{
+    ViewData["Title"] = "Iletisim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row text-center">
+    <div class="col">
+        <h1 class="display-4">
+            @ViewData["Title"]
+        </h1>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+        <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Email</th>
+                    <th>Acıklama</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var iletisim in Model)
+                {
+                    <tr>
+                        <td>@iletisim.Name</td>
+                        <td>@iletisim.Surname</td>
+                        <td>@iletisim.Email</td>
+                        <td>@iletisim.Description</td>
+                        <td>
+                            <a asp-action="DeleteIletisim" asp-route-id="@iletisim.id" onclick="return confirm('İletisimi silmek istediğinden emin misin : @iletisim.Name ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+

@@ -9,10 +9,11 @@ namespace MvcWebProje.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly DatabaseContext _databaseContext;
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(DatabaseContext databaseContext)
         {
-            _logger = logger;
+            _databaseContext = databaseContext;
         }
+
 
         public IActionResult Index()
         {
@@ -31,7 +32,7 @@ namespace MvcWebProje.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult iletisim(iletisimViewModel model)
+        public IActionResult iletisim(iletisim model)
         {
             if (ModelState.IsValid)
             {
