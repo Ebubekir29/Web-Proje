@@ -44,6 +44,7 @@ namespace MvcWebProje.Controllers
             }
             return View(model);
         }
+        [HttpGet]
         public IActionResult EditCategory(int id)
         {
             if (id == null)
@@ -56,7 +57,7 @@ namespace MvcWebProje.Controllers
             return View(user);
         }
         [HttpPost]
-        public IActionResult EditUser(int id, Category model)
+        public IActionResult EditCategory(int id, Category model)
         {
             if (id != model.Id)
             {

@@ -29,21 +29,17 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="tarif" aria-expanded="false">Kategoriler</a>
                             <div class="dropdown-menu" aria-labelledby="tarif">
-                                <a class="dropdown-item" asp-controller="Home" asp-action="Index">Tümü</a>
-                                <div class="dropdown-divider"> </div>
-                                
-                                <a class="dropdown-item" href="../cerulean/">Sulu Yemekler</a>
-                                <a class="dropdown-item" href="../cosmo/">Etli Yemekler</a>
-                                <a class="dropdown-item" href="../cyborg/">Sebze Yemekleri</a>
-                                <a class="dropdown-item" href="../darkly/">Çorba Çeşitleri</a>
-                                <a class="dropdown-item" href="../flatly/">Pilav Çeşitleri</a>
-                                <a class="dropdown-item" href="../journal/">Salata Çeşitleri</a>
-                                <a class="dropdown-item" href="../litera/">Soğuk/Sicak Mezeler</a>
-                                <a class="dropdown-item" href="../lumen/">Tatli Çeşitleri</a>
+                                <a class="dropdown-item" href="#">
+                           @*         @foreach (var cat in Model)
+                                    {
+                                        cat.Name  BURADA KALDIM....
+                                    }*@  
+
+                                </a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Hakkında">Hakkıında</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Hakkında">Hakkında</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="iletisim">İletişim</a>
@@ -54,26 +50,11 @@
                             @if (User.IsInRole("admin"))
                             {
 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" asp-action="Index" asp-asp-controller="Admin" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                        Admin
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a asp-action="Index" asp-controller="Admin" class="dropdown-item">Admin Sayfası</a>
+                             
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-action="Index" asp-controller="Admin" class="dropdown-item">Admin</a>
                                         </li>
-                                        <li>
-                                            <a asp-action="Index" asp-controller="User" class="dropdown-item">Kullanıcılar</a>
-                                        </li>
-                                        <li>
-                                            <a asp-action="Index" asp-controller="Category" class="dropdown-item">Kategoriler</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                @*   <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                        </li>*@
+                          
                             }
 
                             <li class="dropdown ms-auto">

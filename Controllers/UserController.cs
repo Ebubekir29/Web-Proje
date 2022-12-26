@@ -54,18 +54,6 @@ namespace MvcWebProje.Controllers
 
             return View(model);
         }
-        public IActionResult DeleteUser(Guid id)
-        {
-            User user = _databaseContext.Users.Find(id);
-
-            if (user != null)
-            {
-                _databaseContext.Users.Remove(user);
-                _databaseContext.SaveChanges();
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
         [HttpGet]
         public IActionResult EditUser(Guid? id)
         {
@@ -83,8 +71,7 @@ namespace MvcWebProje.Controllers
             return View(user);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult EditUser(Guid id, EditUserModel edit)
+        public IActionResult EditUser(Guid id, UserModel edit)
         {
             if (id != edit.Id)
             {
@@ -102,10 +89,21 @@ namespace MvcWebProje.Controllers
                     _databaseContext.Users.Update(use);
                     _databaseContext.SaveChanges();
                 }
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("Index", "Admin");
+            }
+            return View(edit);
+        }
+        public IActionResult DeleteUser(Guid id)
+        {
+            User user = _databaseContext.Users.Find(id);
+
+            if (user != null)
+            {
+                _databaseContext.Users.Remove(user);
+                _databaseContext.SaveChanges();
             }
 
-            return View(edit);
+            return RedirectToAction(nameof(Index));
         }
 
     }

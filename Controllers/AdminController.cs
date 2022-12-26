@@ -55,59 +55,6 @@ namespace MvcWebProje.Controllers
 
             return View(model);
         }
-        public IActionResult DeleteUser(Guid id)
-        {
-            User user = _databaseContext.Users.Find(id);
-
-            if (user != null)
-            {
-                _databaseContext.Users.Remove(user);
-                _databaseContext.SaveChanges();
-            }
-
-            return RedirectToAction(nameof(Index));
-        }
-        [HttpGet]
-        public IActionResult EditUser(Guid? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = _databaseContext.Users.Find(id);
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return View(user);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult EditUser(Guid id, EditUserModel edit)
-        {
-            if (id != edit.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                var use = _databaseContext.Users.Find(id);
-                if (ModelState.IsValid)
-                {
-                    use.Username = edit.Username;
-                    use.Email = edit.Email;
-                    use.Role = edit.Role;
-                    _databaseContext.Users.Update(use);
-                    _databaseContext.SaveChanges();
-                }
-                return RedirectToAction("Index", "User");
-            }
-
-            return View(edit);
-        }
         public IActionResult YemekTarifiGoruntule()
         {
             List<Yemekler> yemek = new List<Yemekler>();
