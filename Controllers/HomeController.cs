@@ -17,7 +17,9 @@ namespace MvcWebProje.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Yemekler> yemek = new List<Yemekler>();
+            yemek = _databaseContext.yemeklers.Select(x => new Yemekler { id = x.id, yemekIsmi = x.yemekIsmi, yemeginKategorisi = x.yemeginKategorisi, YemekTarifi = x.YemekTarifi, CreatedAt = x.CreatedAt }).ToList();
+            return View(yemek);
         }
 
         [AllowAnonymous]
@@ -56,6 +58,7 @@ namespace MvcWebProje.Controllers
             }
             return View(model);
         }
+
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {

@@ -91,17 +91,53 @@ namespace MvcWebProje.Controllers
             }
             return View(model);
         }
-        public IActionResult DeleteYemek(int id)
+        [HttpGet]
+        public IActionResult EditYemek(Guid id)
         {
-            Category category = _databaseContext.Categories.Find(id);
-
-            if (category != null)
+            if (id == null)
             {
-                _databaseContext.Categories.Remove(category);
+                return NotFound();
+            }
+
+            var yemek = _databaseContext.yemeklers.Find(id);
+
+            return View(yemek);
+        }
+        [HttpPost]
+        public IActionResult EditYemek(Guid id, Yemekler yemek)
+        {
+            if (id != yemek.id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var model = _databaseContext.yemeklers.Find(id);
+                if (ModelState.IsValid)
+                {
+                    model.yemekIsmi = yemek.yemekIsmi;
+                    model.yemeginKategorisi = yemek.yemeginKategorisi;
+                    model.YemekTarifi = yemek.YemekTarifi;
+                    _databaseContext.yemeklers.Update(yemek);
+                    _databaseContext.SaveChanges();
+                }
+                return RedirectToAction("YemekTarifiGoruntule", "Admin");
+            }
+
+            return View(yemek);
+        }
+        public IActionResult DeleteYemek(Guid id)
+        {
+            Yemekler yemek = _databaseContext.yemeklers.Find(id);
+
+            if (yemek != null)
+            {
+                _databaseContext.yemeklers.Remove(yemek);
                 _databaseContext.SaveChanges();
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("YemekTarifiGoruntule", "Admin");
         }
         public IActionResult iletisimGoruntule()
         {

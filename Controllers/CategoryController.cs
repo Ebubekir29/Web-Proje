@@ -13,8 +13,6 @@ namespace MvcWebProje.Controllers
         public IActionResult Index()
         {
             List<Category> categories = new List<Category>();
-
-
             categories = _databaseContext.Categories.Select(x => new Category { Id = x.Id, Name = x.Name, Description = x.Description }).ToList();
             return View(categories);
         }
