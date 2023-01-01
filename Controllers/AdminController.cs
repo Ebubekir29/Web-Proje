@@ -119,7 +119,7 @@ namespace MvcWebProje.Controllers
                     model.yemekIsmi = yemek.yemekIsmi;
                     model.yemeginKategorisi = yemek.yemeginKategorisi;
                     model.YemekTarifi = yemek.YemekTarifi;
-                    _databaseContext.yemeklers.Update(yemek);
+                    _databaseContext.yemeklers.Update(model);
                     _databaseContext.SaveChanges();
                 }
                 return RedirectToAction("YemekTarifiGoruntule", "Admin");
@@ -158,6 +158,30 @@ namespace MvcWebProje.Controllers
             }
 
             return RedirectToAction("iletisimGoruntule", "Admin");
+        }
+
+        public IActionResult YorumGoruntule()
+        {
+            List<Commend> yemek = new List<Commend>();
+
+            // yemek = _databaseContext.yemeklers.Select(x => new Yemekler { id = x.id, yemekIsmi = x.yemekIsmi, yemeginKategorisi = x.yemeginKategorisi, YemekTarifi = x.YemekTarifi, CreatedAt = x.CreatedAt }).ToList();
+            yemek = _databaseContext.commends.ToList();
+            return View(yemek);
+        }
+
+        [HttpGet]
+
+        public IActionResult DeleteYorum(int id)
+        {
+            Commend yorum = _databaseContext.commends.Find(id);
+
+            if (yorum != null)
+            {
+                _databaseContext.commends.Remove(yorum);
+                _databaseContext.SaveChanges();
+            }
+
+            return RedirectToAction("YorumGoruntule", "Admin");
         }
     }
 }

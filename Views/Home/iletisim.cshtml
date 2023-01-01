@@ -2,42 +2,61 @@
 @{
     ViewData["Title"] = "iletisim";
 }
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Sixteen Clothing - About Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/templatemo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/templatemo/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/templatemo/assets/css/templatemo-sixteen.css">
+    <link rel="stylesheet" href="~/templatemo/assets/css/owl.css">
+
+</head>
+
 <section class="contact-head">
 
     <div class="container text-center">
 
-        <h1 class="title">Bizimle @ViewData["Title"]'e Geçin</h1>
+        <h1 class="title" key=5>Bizimle iletişim Geçin</h1>
 
-        <p class="warning-text"> <i> Görüşleriniz bizim için çok değerli!</i></p>
+        <p class="warning-text" key =6> <i> Görüşleriniz bizim için çok değerli!</i></p>
     </div>
 </section>
 
 <div class="row">
-    <div class="col-4 offset-4">
+    <div class="col-4 offset-4 mt-5">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
             <div class="form-group mb-3">
-                <label asp-for="Name" class="form-label">İsim</label>
+                <label asp-for="Name" class="form-label" key=7>İsim</label>
                 <input asp-for="Name" class="form-control" placeholder="Name" />
                 <span asp-validation-for="Name" class="text-danger small"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Surname" class="form-label">Soy isim</label>
+                <label asp-for="Surname" class="form-label" key=8>Soy isim</label>
                 <input asp-for="Surname" class="form-control" placeholder="Surname" />
                 <span asp-validation-for="Surname" class="text-danger small"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Email" class="form-label">Email</label>
+                <label asp-for="Email" class="form-label" key=9>Email</label>
                 <input asp-for="Email" class="form-control" type="email" placeholder="Email"/>
                 <span asp-validation-for="Email" class="text-danger small"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Description" class="form-label">Açıklama</label>
+                <label asp-for="Description" class="form-label"key =10>Açıklama</label>
                 <input asp-for="Description" class="form-control" placeholder="Description" />
                 <span asp-validation-for="Description" class="text-danger small"></span>
             </div>
             <div class="form-group d-grid mb-3">
-                <button type="submit" class="btn btn-primary d-block"> <i class="fa-solid fa-paper-plane me-2"></i> Kaydet</button>
+                <button type="submit" class="btn btn-primary d-block" key=11> <i class="fa-solid fa-paper-plane me-2"></i> Kaydet</button>
             </div>
         </form>
     </div>

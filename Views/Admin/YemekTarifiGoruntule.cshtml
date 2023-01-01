@@ -6,8 +6,8 @@
 
 <div class="row text-center">
     <div class="col">
-        <h1 class="display-4">
-            @ViewData["Title"]
+        <h1 class="display-4" key=35>
+            Yemekler
         </h1>
     </div>
 </div>
@@ -15,7 +15,7 @@
 
 <div class="row mb-3">
     <div class="col">
-        <a class="btn btn-primary btn-sm" asp-action="CreateYemek"><i class="fa fa-plus me-2"></i>Yeni Yemek Ekle</a>
+        <a class="btn btn-primary btn-sm" asp-action="CreateYemek" key=36><i class="fa fa-plus me-2"></i>Yeni Yemek Ekle</a>
     </div>
 </div>
 
@@ -24,10 +24,10 @@
         <table class="table table-hover table-sm">
             <thead>
                 <tr>
-                    <th>Yemeğin Adı</th>
-                    <th>Yemeğin Kategorisi</th>
-                    <th>Yemeğin Tarifi</th>
-                    <th>Güncelleme Tarihi</th>
+                    <th key=29>Yemek İsmi</th>
+                    <th key=30>Yemeğin Kategorisi</th>
+                    <th key=31>Yemeğin tarifi</th>
+                    <th key=37>Güncelleme Tarihi</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,8 +39,8 @@
                             <td>@yemek.YemekTarifi</td>
                             <td>@yemek.CreatedAt</td>
                             <td>
-                                <a asp-action="EditYemek" asp-route-id="@yemek.id" class="btn btn-info btn-sm"><i class="fa fa-edit me-2"></i>Düzenle</a>
-                                <a asp-action="DeleteYemek" asp-route-id="@yemek.id" onclick="return confirm('Yemeği silmek istediğinden emin misin : @yemek.yemekIsmi ?')" class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Sil</a>
+                            <a asp-action="EditYemek" asp-route-id="@yemek.id" class="btn btn-info btn-sm"><i class="fa fa-edit me-2" key=42></i>Düzenle</a>
+                            <a asp-action="DeleteYemek" asp-route-id="@yemek.id" onclick="return confirm('Yemeği silmek istediğinden emin misin : @yemek.yemekIsmi ?')" class="btn btn-danger btn-sm" key=43><i class="fa fa-trash me-2"></i>Sil</a>
                             </td>
                         </tr>
                 }

@@ -54,6 +54,7 @@ namespace MvcWebProje.Controllers
                     ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                    Response.Cookies.Append("id", user.Id.ToString());
 
                     return RedirectToAction("Index", "Home");
 

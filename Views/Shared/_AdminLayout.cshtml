@@ -24,8 +24,12 @@
     <link rel="stylesheet" href="~/sneat/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="~/sneat/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="~/sneat/assets/css/demo.css" />
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-
+<script src="~/js/scriptlanguage1.js"></script>
     <link rel="stylesheet" href="~/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="~/sneat/assets/vendor/libs/apex-charts/apex-charts.css" />
@@ -40,7 +44,6 @@
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
@@ -60,7 +63,7 @@
             <!-- Menu -->
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo ">
-                    <a asp-action="Index" asp-controller="Admin" class="app-brand-link"> 
+                    <a asp-action="Index" asp-controller="Admin" class="app-brand-link">
                         <span class="app-brand-text demo menu-text fw-bolder ms-3">Admin</span>
                     </a>
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -70,30 +73,36 @@
 
                 <div class="menu-inner-shadow"></div>
 
-                <ul class="menu-inner py-1">    
- 
+                <ul class="menu-inner py-1">
+
                     <li class="menu-item active">
                         <a asp-action="Index" asp-controller="User" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <i class="menu-icon tf-icons bx bx-user-circle"></i>
                             <div data-i18n="Analytics">Kullanıcılar</div>
                         </a>
                     </li>
-                   <li class="menu-item active">
+                    <li class="menu-item active">
                         <a asp-action="Index" asp-controller="Category" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <i class="menu-icon tf-icons bx bx-category"></i>
                             <div data-i18n="Analytics">Kategoriler</div>
                         </a>
                     </li>
                     <li class="menu-item active">
                         <a asp-action="YemekTarifiGoruntule" asp-controller="Admin" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <i class="menu-icon tf-icons bx bxs-paste"></i>
                             <div data-i18n="Analytics">Yemekler</div>
                         </a>
                     </li>
                     <li class="menu-item active">
                         <a asp-action="iletisimGoruntule" asp-controller="Admin" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <i class="menu-icon tf-icons bx bxs-phone"></i>
                             <div data-i18n="Analytics">İletisim</div>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a asp-action="yorumGoruntule" asp-controller="Admin" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-comment"></i>
+                            <div data-i18n="Analytics">Yorumlar</div>
                         </a>
                     </li>
             </aside>
@@ -109,25 +118,33 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="navbar-nav flex-grow-1">
-                          
+
                                 <li class="nav-item">
                                     <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Hakkında">Hakkıında</a>
                                 </li>
-                            
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="drop_yazı" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        English
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" id="tr" href="#">Türkçe</a>
+                                        <a class="dropdown-item" id="en" href="#">English</a>
+
+                                    </div>
+                                </div>
+
                                 <li class="dropdown ms-auto">
                                     <a class="btn btn-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown" asp-area="" asp-controller="Account" asp-action="Profile">
-                                        <i class="fa-solid fa-user me-2"></i>
+                                        <i class="menu-icon tf-icons bx bx-category"></i>
                                         @User.FindFirst("Username").Value
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" asp-area="#">Profile Git</a></li>
                                         <li><a class="dropdown-item" asp-area="#" asp-controller="Account" asp-action="Profile">Profili Düzenle</a></li>
+                                        <li>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " asp-area="" asp-controller="Account" asp-action="Logout"> <i class="fa-solid fa-right-from-bracket me-2"></i> Çıkış Yap</a>
-                                </li>
-
                             </ul>
                         </div>
                     </div>

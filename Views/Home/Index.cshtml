@@ -1,24 +1,23 @@
 ﻿@model IEnumerable<Yemekler>
 
-<html lang="en">
+<html>
 
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing HTML Template</title>
+    <style>
+        .metin {
+            width: px;
+            word-wrap: break-word;
+        }
+    </style>
 
     <!-- Bootstrap core CSS -->
     <link href="~/templatemo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--
 
     TemplateMo 546 Sixteen Clothing
-
-    https://templatemo.com/tm-546-sixteen-clothing
 
     -->
     <!-- Additional CSS Files -->
@@ -30,32 +29,17 @@
 
 <body>
 
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="banner header-text">
+    <div class="banner ">
+        <h1 key=1 style="color:coral">Yemek Tarifleri</h1>
+    </div>
+    <div class="banner ">
         <div class="owl-banner owl-carousel">
-            <div >
-                <img src="~/Resimler/W7AHOK86.jpg" alt="Kebap">
-                <div class="text-content">
-                </div>
-            </div>
-            <div >
-                <img src="~/Resimler/kuzu-tandir.jpg" alt="Kuzu Tandır">
-                <div class="text-content">
-                </div>
-            </div>
-            <div >
-                <img src="~/Resimler/bonfile.jpg" alt="Bonfile">
-                <div class="text-content">
-
-                </div>
-            </div>
-            <div>
-                <img src="~/Resimler/download.jpg" alt="">
-                <div class="text-content">
-                </div>
-            </div>
+            @foreach (var item in Model)
+            {
+                <a asp-action="FoodDetail" asp-route-foodid="@item.id"><img src="/Resimler/@(item.yemekIsmi).jpg" alt=""></a>
+            }
         </div>
+
     </div>
     <!-- Banner Ends Here -->
 
@@ -63,34 +47,27 @@
         <div class="container">
             <div class="row">
                 @foreach (var item in Model)
-                {           
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <a href="#"><img src="~/templatemo/assets/images/product_01.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="#"><h4>@item.yemekIsmi</h4></a>
-                            <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
-                            @*<ul class="stars">
-                                <li><i class="fa fa-star"></i></li>
+                {
+                    <div class="col-md-4">
+                        <div class="product-item" style="background-color:aqua">
+                            <a href="#"><img src="/Resimler/@(item.yemekIsmi).jpg" alt=""></a>
+                            <div class="down-content">
+                                <a asp-action="FoodDetail" asp-route-foodid="@item.id"><h4>@item.yemekIsmi</h4></a>
+                                <p class="metin">@item.YemekTarifi</p>
+                                @* <ul class="stars">
+                            <li><i class="fa fa-star"></i></li>
                             </ul>
                             <span><i class="fa fa-comment mb-2"></i>Yorumlar</span>*@
-                        </div>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
                 }
                 <article>
-
                 </article>
             </div>
         </div>
     </div>
-
-
-
-
-
-
     <!-- Bootstrap core JavaScript -->
     <script src="~/templatemo/vendor/jquery/jquery.min.js"></script>
     <script src="~/templatemo/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -104,16 +81,6 @@
     <script src="~/templatemo/assets/js/accordions.js"></script>
 
 
-    <script language="text/Javascript">
-        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-        function clearField(t) {                   //declaring the array outside of the
-            if (!cleared[t.id]) {                      // function makes it static and global
-                cleared[t.id] = 1;  // you could use true and false, but that's more typing
-                t.value = '';         // with more chance of typos
-                t.style.color = '#fff';
-            }
-        }
-    </script>
 
 
 </body>

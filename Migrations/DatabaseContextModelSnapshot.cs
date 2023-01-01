@@ -42,18 +42,18 @@ namespace MvcWebProje.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("MvcWebProje.Models.Commend", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Userid")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -69,9 +69,9 @@ namespace MvcWebProje.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
-                    b.ToTable("commends");
+                    b.ToTable("commends", (string)null);
                 });
 
             modelBuilder.Entity("MvcWebProje.Models.iletisim", b =>
@@ -104,7 +104,7 @@ namespace MvcWebProje.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("iletisim");
+                    b.ToTable("iletisim", (string)null);
                 });
 
             modelBuilder.Entity("MvcWebProje.Models.User", b =>
@@ -137,7 +137,7 @@ namespace MvcWebProje.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("MvcWebProje.Models.Yemekler", b =>
@@ -166,7 +166,7 @@ namespace MvcWebProje.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Yemekler");
+                    b.ToTable("Yemekler", (string)null);
                 });
 #pragma warning restore 612, 618
         }
