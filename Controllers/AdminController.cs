@@ -87,7 +87,7 @@ namespace MvcWebProje.Controllers
                 };
                 _databaseContext.yemeklers.Add(userdata);
                 _databaseContext.SaveChanges();
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("YemekTarifiGoruntule", "Admin");
             }
             return View(model);
         }

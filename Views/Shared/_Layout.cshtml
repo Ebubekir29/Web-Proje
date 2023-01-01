@@ -96,33 +96,31 @@
 
 
     <!-- Footer -->
-    <hr />
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="footer__instagram">
-                <div class="footer__instagram__avatar">
-                    <div class="footer__instagram__avatar--text">
-                        <h5 key =46>Yemek Tarif Sitesi</h5> <br />
-                        <p key=47 style="font-size:20px">
-                            Tüm hakları saklıdır &copy;<br />
-                            Project @DateTime.Now.Year
-                        </p>
+    @*    <hr />
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="footer__instagram">
+                    <div class="footer__instagram__avatar">
+                        <div class="footer__instagram__avatar--text">
+                            <h5 key =46 style="font-size:50px">Yemek Tarif Sitesi</h5> <br />
+                            <p key=47 style="font-size:20px">
+                                Tüm hakları saklıdır &copy;<br />
+                                Project @DateTime.Now.Year
+                            </p>
+                        </div>
                     </div>
+
                 </div>
-
             </div>
-        </div>
-        </div>
+            </div>*@
 
         </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

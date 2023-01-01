@@ -160,7 +160,7 @@ namespace MvcWebProje.Controllers
         //    return PartialView("_EditUserPartial", model);
         //}
         [HttpPost]
-        public IActionResult ProfileChangePassword([Required][MinLength(6)][MaxLength(16)] string? userName, string? password, string? email)
+        public IActionResult ProfileEdit([Required][MinLength(6)][MaxLength(16)] string? userName, string? password, string? email)
         {
             if (ModelState.IsValid)
             {

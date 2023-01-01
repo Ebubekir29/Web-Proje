@@ -48,7 +48,14 @@
                         <div class="product-item" style="background-color:white">
                             <a href="#"><img src="/Resimler/@(item.yemekIsmi).jpg" alt=""></a>
                             <div class="down-content">
-                                <a asp-action="FoodDetail" asp-route-foodid="@item.id"><h4>@item.yemekIsmi</h4></a>
+                                @if (User.IsInRole("admin"))
+                                {
+                                    <a asp-action="FoodDetail" asp-route-foodid="@item.id"><h4>@item.yemekIsmi</h4></a>
+                                }
+                                else
+                                {
+                                     <a asp-controller="Home" asp-action="AccessDenied"><h4>@item.yemekIsmi</h4></a>
+                                }
                                 <p class="metin">@item.YemekTarifi</p>
                             </div>
 
