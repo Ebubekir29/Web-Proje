@@ -48,8 +48,9 @@
             '42': 'Düzenle',
             '43': 'Sil',
             '44': 'Ben Ebubekir Mert. Sakarya Üniveristesi Bilgisayar Mühendisliği okuyorum.',
-            '45': 'Ben Elman Muradov. Sakarya Üniveristesi Bilgisayar Mühendisliği okuyorum.'
-     
+            '45': 'Ben Elman Muradov. Sakarya Üniveristesi Bilgisayar Mühendisliği okuyorum.',
+            '46': 'Yemek Tarif Sitesi',
+            '47': 'Tüm hakları saklıdır'
         },
 
 
@@ -99,7 +100,9 @@
             '42': 'Edit',
             '43': 'Delete',
             '44': "I'm Ebubekir Mert. I'm studying Computer Engineering at Sakarya University.",
-            '45': "I'm Elman Muradov. I'm studying Computer Engineering at Sakarya University."
+            '45': "I'm Elman Muradov. I'm studying Computer Engineering at Sakarya University.",
+            '46': 'Recipe Site',
+            '47': 'All rights reserved'
         },
 
 

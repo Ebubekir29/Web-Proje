@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MvcProjeWeb</title>
+    <title>Ana Sayfa</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -28,7 +28,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav flex-grow-1">
-                              <li class="dropdown ms-3" style="color:blue;">
+                        <li class="dropdown ms-3" style="color:blue;">
                             <a class="btn btn-secondary dropdown-toggle" type="button" id="drop_yazı" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa-solid fa-user me-2"></i>
                                 Türkçe
@@ -46,8 +46,8 @@
                         </li>
                         <li class="nav-item" style="color:blue;">
                             <a class="nav-link " asp-area="" asp-controller="Home" asp-action="iletisim">İletişim</a>
-                        </li>     
-                  
+                        </li>
+
                         @if (User.Identity.IsAuthenticated)
                         {
                             @if (User.IsInRole("admin"))
@@ -95,72 +95,27 @@
     </div>
 
 
-    @* <!-- Footer -->
+    <!-- Footer -->
     <hr />
     <footer class="footer">
-    <div class="container-fluid">
-    <div class="footer__instagram">
-    <div class="footer__instagram__avatar">
-    <div class="footer__instagram__avatar--pic">
-    <img src="img/footer/instagram-avatar.jpg" alt="">
-    </div>
-    <div class="footer__instagram__avatar--text">
-    <h5>Yemek Tarif Sitesi</h5>
-    <span>23,7k follower</span>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-    <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-1.jpg"></div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-    <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-2.jpg"></div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-    <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-3.jpg"></div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-    <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-4.jpg"></div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-    <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-5.jpg"></div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-4 col-6">
-    <div class="footer__instagram__item set-bg" data-setbg="img/footer/ip-6.jpg"></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="container">
-    <div class="row">
-    <div class="col-lg-12">
-    <div class="footer__text">
-    <div class="footer__logo">
-    <a href="#"><img src="img/logo.png" alt=""></a>
-    </div>
-    <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-    ut<br /> labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus
-    commodo viverra<br /> maecenas accumsan lacus vel facilisis.
-    </p>
-    <div class="footer__social">
-    <a href="https://twitter.com/Ebubekir_mert29"><i class="fa fa-twitter"></i></a>
-    <a href="https://www.instagram.com/ebubekir_mert/"><i class="fa fa-instagram"></i></a>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-lg-4 text-center">
-    <p>
-    Tüm hakları saklıdır &copy;<br />
-    Proje @DateTime.Now.Year
-    </p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </footer>*@
+        <div class="container-fluid">
+            <div class="footer__instagram">
+                <div class="footer__instagram__avatar">
+                    <div class="footer__instagram__avatar--text">
+                        <h5 key =46>Yemek Tarif Sitesi</h5> <br />
+                        <p key=47 style="font-size:20px">
+                            Tüm hakları saklıdır &copy;<br />
+                            Project @DateTime.Now.Year
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+        </div>
+    </footer>
     @*  <footer>
     <div class="bg-dark text-light text-center">
 
